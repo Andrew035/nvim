@@ -118,6 +118,7 @@ return {
 		},
 	},
 	{
+		enabled = false,
 		"nvim-tree/nvim-tree.lua",
 		config = function()
 			vim.g.loaded_netrw = 1
