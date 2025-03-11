@@ -71,7 +71,7 @@ return {
 					floats = transparent and "transparent" or "dark",
 					comments = { italic = true },
 					keywords = { italic = true, bold = true },
-					functions = { italic = true, bold = true },
+					functions = { bold = true },
 					variables = {},
 				},
 				on_highlights = function(hl, c) end,

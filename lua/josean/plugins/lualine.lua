@@ -109,13 +109,15 @@ return {
 			options = {
 				theme = "rose-pine-alt",
 				component_separators = "",
-				section_separators = { left = "", right = "" },
+				-- section_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
 			},
 			sections = {
 				lualine_a = {
 					{
 						"mode",
-						separator = { left = "", right = "" },
+						-- separator = { left = "", right = "" },
+						separator = { left = "", right = "" },
 						right_padding = 2,
 					},
 				},
@@ -147,7 +149,8 @@ return {
 				lualine_z = {
 					{
 						"location",
-						separator = { left = "", right = "" },
+						-- separator = { left = "", right = "" },
+						separator = { left = "", right = "" },
 						left_padding = 2,
 					},
 				},
