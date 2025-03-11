@@ -1,7 +1,7 @@
 return {
 	{
 		-- catppuccin
-		enabled = false, -- dims the background color of inactive window
+		enabled = true, -- dims the background color of inactive window
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -25,10 +25,10 @@ return {
 					comments = { "italic" }, -- Change the style of comments
 					conditionals = { "italic", "bold" },
 					loops = {},
-					functions = { "italic", "bold" },
+					functions = { "bold" },
 					keywords = { "italic" },
 					strings = {},
-					variables = { "italic" },
+					variables = {},
 					numbers = { "bold" },
 					booleans = { "bold" },
 					properties = {},
@@ -49,7 +49,6 @@ return {
 						enabled = true,
 						indentscope_color = "",
 					},
-					-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 				},
 			})
 			-- setup must be called before loading
@@ -129,7 +128,7 @@ return {
 		end,
 	},
 	{
-		enabled = true,
+		enabled = false,
 		"rose-pine/neovim",
 		name = "rose-pine",
 		lazy = false,
