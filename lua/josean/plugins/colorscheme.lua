@@ -1,7 +1,7 @@
 return {
 	{
 		-- catppuccin
-		enabled = true, -- dims the background color of inactive window
+		enabled = false, -- dims the background color of inactive window
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -13,13 +13,8 @@ return {
 				},
 				transparent_background = true, -- disables setting the background color.
 				show_end_of_buffer = false, -- shows the '~' characters after the end of buffers term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
-				-- dim_inactive = {
-				-- 	shade = "dark",
-				-- 	percentage = 0.15, -- percentage of the shade to apply to the inactive window
-				-- 	enabled = true,
-				-- },
-				no_italic = false, -- Force no italic
-				no_bold = false, -- Force no bold
+				no_italic = true, -- Force no italic
+				no_bold = true, -- Force no bold
 				no_underline = false, -- Force no underline
 				styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
 					comments = { "italic" }, -- Change the style of comments
@@ -51,9 +46,7 @@ return {
 					},
 				},
 			})
-			-- setup must be called before loading
 			vim.cmd.colorscheme("catppuccin")
-			vim.opt.fillchars = { eob = " " }
 		end,
 	},
 	{
@@ -286,6 +279,31 @@ return {
 			vim.g.edge_style = "neon"
 			vim.cmd.colorscheme("edge")
 			vim.opt.fillchars = { eob = " " }
+		end,
+	},
+	{
+		"ribru17/bamboo.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("bamboo").setup({
+				style = "vulgaris",
+				transparent = true,
+				code_style = {
+					comments = {},
+					conditionals = {},
+					keywords = {},
+					functions = {},
+					namespaces = {},
+					parameters = {},
+					strings = {},
+					variables = {},
+				},
+				lualine = {
+					transparent = true,
+				},
+			})
+			require("bamboo").load()
 		end,
 	},
 }

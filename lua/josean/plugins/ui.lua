@@ -25,7 +25,7 @@ return {
 		event = "BufReadPre",
 		priority = 1200,
 		config = function()
-			local colors = require("catppuccin.palettes.mocha")
+			-- local colors = require("catppuccin.palettes.mocha")
 			-- local colors = require("solarized-osaka.colors").setup()
 			require("incline").setup({
 				highlight = {
@@ -34,8 +34,8 @@ return {
 						-- InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
 						-- InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
 						-- catppuccin
-						InclineNormal = { guibg = colors.base, guifg = colors.lavender },
-						InclineNormalNC = { guifg = colors.green, guibg = colors.base },
+						-- InclineNormal = { guibg = colors.base, guifg = colors.lavender },
+						-- InclineNormalNC = { guifg = colors.green, guibg = colors.base },
 						-- tokyonight (josean)
 						-- InclineNormal = { guibg = "#011628", guifg = "#cbe0f0" },
 						-- inclineNormalNC = { guifg = "#3effdc", guibg = "#011628" },
@@ -57,9 +57,9 @@ return {
 						-- rose-pine
 						-- inclineNormal = { guifg = "#eb6f92", guibg = "#232136" },
 						-- inclineNormalNC = { guifg = "#3e8fb0", guibg = "#232136" },
-						-- black metal
-						-- inclineNormal = { guifg = "#dadada", guibg = "" },
-						-- inclineNormalNC = { guifg = "#8ccf7e", guibg = "" },
+						-- bamboo
+						inclineNormal = { guifg = "#f1e9d2", guibg = "#252623" },
+						inclineNormalNC = { guifg = "#8fb573", guibg = "#252623" },
 					},
 				},
 				window = { margin = { vertical = 2, horizontal = 1 } },
