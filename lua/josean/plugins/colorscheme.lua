@@ -1,7 +1,7 @@
 return {
 	{
 		-- catppuccin
-		enabled = false, -- dims the background color of inactive window
+		enabled = true, -- dims the background color of inactive window
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -16,6 +16,7 @@ return {
 				no_italic = true, -- Force no italic
 				no_bold = true, -- Force no bold
 				no_underline = false, -- Force no underline
+				term_colors = true,
 				styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
 					comments = { "italic" }, -- Change the style of comments
 					conditionals = { "italic", "bold" },
@@ -47,6 +48,7 @@ return {
 				},
 			})
 			vim.cmd.colorscheme("catppuccin")
+			vim.opt.fillchars = { eob = " " }
 		end,
 	},
 	{
@@ -54,16 +56,16 @@ return {
 		"folke/tokyonight.nvim",
 		priority = 1000,
 		config = function()
-			local transparent = true -- set to true if you would like to enable transparency
+			local transparent = false -- set to true if you would like to enable transparency
 			require("tokyonight").setup({
-				style = "storm",
+				style = "night",
 				transparent = transparent,
 				styles = {
 					sidebars = transparent and "transparent" or "dark",
 					floats = transparent and "transparent" or "dark",
-					comments = { italic = true },
-					keywords = { italic = true, bold = true },
-					functions = { bold = true },
+					comments = {},
+					keywords = {},
+					functions = {},
 					variables = {},
 				},
 				on_highlights = function(hl, c) end,
@@ -82,8 +84,8 @@ return {
 		config = function()
 			require("nordic").setup({
 				transparent = {
-					bg = true,
-					float = true,
+					bg = false,
+					float = false,
 				},
 				bold_keywords = true,
 				italic_comments = true,
@@ -227,24 +229,8 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("lackluster-hack")
-			vim.opt.fillchars = { eob = " " }
-		end,
-	},
-	{
-		enabled = false,
-		"neko-night/nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("nekonight").setup({
-				transparent = true,
-				styles = {
-					sidebars = "transparent",
-					floats = "transparent",
-				},
-			})
-			vim.cmd.colorscheme("nekonight-deep-ocean")
+			require("lackluster").setup({})
+			vim.cmd.colorscheme("lackluster")
 			vim.opt.fillchars = { eob = " " }
 		end,
 	},
@@ -279,31 +265,6 @@ return {
 			vim.g.edge_style = "neon"
 			vim.cmd.colorscheme("edge")
 			vim.opt.fillchars = { eob = " " }
-		end,
-	},
-	{
-		"ribru17/bamboo.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("bamboo").setup({
-				style = "vulgaris",
-				transparent = true,
-				code_style = {
-					comments = {},
-					conditionals = {},
-					keywords = {},
-					functions = {},
-					namespaces = {},
-					parameters = {},
-					strings = {},
-					variables = {},
-				},
-				lualine = {
-					transparent = true,
-				},
-			})
-			require("bamboo").load()
 		end,
 	},
 }

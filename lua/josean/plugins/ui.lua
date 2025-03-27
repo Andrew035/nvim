@@ -41,7 +41,7 @@ return {
 						-- inclineNormalNC = { guifg = "#3effdc", guibg = "#011628" },
 						-- tokyonight (normal)
 						-- InclineNormal = { guibg = "#1a1b26", guifg = "#c0caf5" },
-						-- inclineNormalNC = { guifg = "#4bd6be", guibg = "#1a1b26" },
+						-- InclineNormalNC = { guifg = "#4bd6be", guibg = "#1a1b26" },
 						-- nordic
 						-- InclineNormal = { guibg = "#242933", guifg = "#d8dee9" },
 						-- inclineNormalNC = { guifg = "#b1c89d", guibg = "#242933" },
@@ -58,8 +58,11 @@ return {
 						-- inclineNormal = { guifg = "#eb6f92", guibg = "#232136" },
 						-- inclineNormalNC = { guifg = "#3e8fb0", guibg = "#232136" },
 						-- bamboo
-						inclineNormal = { guifg = "#f1e9d2", guibg = "#252623" },
-						inclineNormalNC = { guifg = "#8fb573", guibg = "#252623" },
+						-- inclineNormal = { guifg = "#f1e9d2", guibg = "#252623" },
+						-- inclineNormalNC = { guifg = "#8fb573", guibg = "#252623" },
+						-- lackluster
+						inclineNormal = { guifg = "#deeeed", guibg = "#000000" },
+						inclineNormalNC = { guifg = "#789978", guibg = "#000000" },
 					},
 				},
 				window = { margin = { vertical = 2, horizontal = 1 } },
@@ -118,7 +121,7 @@ return {
 		},
 	},
 	{
-		enabled = false,
+		enabled = true,
 		"nvim-tree/nvim-tree.lua",
 		config = function()
 			vim.g.loaded_netrw = 1
