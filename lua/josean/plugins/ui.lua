@@ -26,43 +26,17 @@ return {
 		priority = 1200,
 		config = function()
 			-- local colors = require("catppuccin.palettes.mocha")
-			-- local colors = require("solarized-osaka.colors").setup()
 			require("incline").setup({
 				highlight = {
 					groups = {
-						-- solarized osaka
-						-- InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
-						-- InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
 						-- catppuccin
 						-- InclineNormal = { guibg = colors.base, guifg = colors.lavender },
 						-- InclineNormalNC = { guifg = colors.green, guibg = colors.base },
-						-- tokyonight (josean)
-						-- InclineNormal = { guibg = "#011628", guifg = "#cbe0f0" },
-						-- inclineNormalNC = { guifg = "#3effdc", guibg = "#011628" },
 						-- tokyonight (normal)
 						-- InclineNormal = { guibg = "#1a1b26", guifg = "#c0caf5" },
 						-- InclineNormalNC = { guifg = "#4bd6be", guibg = "#1a1b26" },
-						-- nordic
-						-- InclineNormal = { guibg = "#242933", guifg = "#d8dee9" },
-						-- inclineNormalNC = { guifg = "#b1c89d", guibg = "#242933" },
-						-- solarized-osaka
-						-- InclineNormal = { guibg = colors.base04, guifg = colors.base4 },
-						-- inclineNormalNC = { guifg = colors.violet500, guibg = colors.base04 },
-						-- gruvbox material
-						-- InclineNormal = { guibg = "#3c3836", guifg = "#8ec07c" },
-						-- inclineNormalNC = { guifg = "#4bd6be", guibg = "#458588" },
-						-- everforest
-						-- InclineNormal = { guibg = "#272e33", guifg = "#8ec07c" },
-						-- InclineNormalNC = { guibg = "#272e33", guifg = "#8ec07c" },
-						-- rose-pine
-						-- inclineNormal = { guifg = "#eb6f92", guibg = "#232136" },
-						-- inclineNormalNC = { guifg = "#3e8fb0", guibg = "#232136" },
-						-- bamboo
-						-- inclineNormal = { guifg = "#f1e9d2", guibg = "#252623" },
-						-- inclineNormalNC = { guifg = "#8fb573", guibg = "#252623" },
-						-- lackluster
-						inclineNormal = { guifg = "#deeeed", guibg = "#000000" },
-						inclineNormalNC = { guifg = "#789978", guibg = "#000000" },
+						inclineNormal = { guifg = "#31748f", guibg = "#191724" },
+						inclineNormalNC = { guifg = "#eb6f92", guibg = "#191724" },
 					},
 				},
 				window = { margin = { vertical = 2, horizontal = 1 } },
