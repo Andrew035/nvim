@@ -4,21 +4,6 @@ return {
 		enabled = false,
 	},
 
-	-- buffer line
-	-- {
-	-- 	"akinsho/bufferline.nvim",
-	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	-- 	version = "*",
-	-- 	opts = {
-	-- 		options = {
-	-- 			mode = "tabs",
-	-- 			show_buffer_close_icons = false,
-	-- 			show_close_icon = false,
-	-- 			themeable = true,
-	-- 		},
-	-- 	},
-	-- },
-
 	-- filename
 	{
 		"b0o/incline.nvim",

@@ -13,10 +13,10 @@ keymap.set("n", "<Leader>q", ":quit<Return>", opts)
 keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
 
 -- Tab and Text Manipulation
-keymap.set("n", "<s-l>", ":tabnext<Return>", opts)
-keymap.set("n", "<s-h>", ":tabprev<Return>", opts)
-keymap.set("v", "<s-j>", ":m '>+1<cr>gv=gv", opts)
-keymap.set("v", "<s-k>", ":m '<-2<cr>gv=gv", opts)
+keymap.set("n", "L", ":tabnext<Return>", opts)
+keymap.set("n", "H", ":tabprev<Return>", opts)
+keymap.set("v", "J", ":m '>+1<cr>gv=gv", opts)
+keymap.set("v", "K", ":m '<-2<cr>gv=gv", opts)
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
@@ -33,4 +33,3 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
-
