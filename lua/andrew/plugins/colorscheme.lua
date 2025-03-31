@@ -1,7 +1,7 @@
 return {
 	{
 		-- catppuccin
-		enabled = false, -- dims the background color of inactive window
+		enabled = true, -- dims the background color of inactive window
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -14,24 +14,10 @@ return {
 				transparent_background = true, -- disables setting the background color.
 				show_end_of_buffer = false, -- shows the '~' characters after the end of buffers term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
 				no_italic = true, -- Force no italic
-				no_bold = true, -- Force no bold
+				no_bold = false, -- Force no bold
 				no_underline = false, -- Force no underline
 				term_colors = true,
-				styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-					comments = { "italic" }, -- Change the style of comments
-					conditionals = { "italic", "bold" },
-					loops = {},
-					functions = { "bold" },
-					keywords = { "italic" },
-					strings = {},
-					variables = {},
-					numbers = { "bold" },
-					booleans = { "bold" },
-					properties = {},
-					types = { "italic" },
-					operators = { "italic" },
-					-- miscs = {}, -- Uncomment to turn off hard-coded styles
-				},
+				styles = {},
 				color_overrides = {},
 				custom_highlights = {},
 				default_integrations = true,
@@ -77,7 +63,7 @@ return {
 		end,
 	},
 	{
-		enabled = true,
+		enabled = false,
 		"rose-pine/neovim",
 		name = "rose-pine",
 		lazy = false,

@@ -10,18 +10,18 @@ return {
 		event = "BufReadPre",
 		priority = 1200,
 		config = function()
-			-- local colors = require("catppuccin.palettes.mocha")
+			local colors = require("catppuccin.palettes.mocha")
 			require("incline").setup({
 				highlight = {
 					groups = {
 						-- catppuccin
-						-- InclineNormal = { guibg = colors.base, guifg = colors.lavender },
-						-- InclineNormalNC = { guifg = colors.green, guibg = colors.base },
+						InclineNormal = { guibg = colors.base, guifg = colors.lavender },
+						InclineNormalNC = { guifg = colors.green, guibg = colors.base },
 						-- tokyonight (normal)
 						-- InclineNormal = { guibg = "#1a1b26", guifg = "#c0caf5" },
 						-- InclineNormalNC = { guifg = "#4bd6be", guibg = "#1a1b26" },
-						inclineNormal = { guifg = "#31748f", guibg = "#191724" },
-						inclineNormalNC = { guifg = "#eb6f92", guibg = "#191724" },
+						-- inclineNormal = { guifg = "#31748f", guibg = "#191724" },
+						-- inclineNormalNC = { guifg = "#eb6f92", guibg = "#191724" },
 					},
 				},
 				window = { margin = { vertical = 2, horizontal = 1 } },

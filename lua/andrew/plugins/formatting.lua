@@ -29,7 +29,7 @@ return {
 				javascriptreact = { "prettier", stop_after_first = true },
 				typescript = { "prettier", stop_after_first = true },
 				typescriptreact = { "prettier", stop_after_first = true },
-				go = { "gofumpt", "golines", "goimports-reviser" },
+				go = { "gofmt" },
 				c = { "clang_format" },
 				cpp = { "clang_format" },
 				haskell = { "ormolu" },
@@ -40,7 +40,6 @@ return {
 				markdown = { "prettier" },
 				gleam = { "gleam" },
 				-- sql = { "sqlfmt" },
-				asm = { "asmfmt" },
 				css = { "prettier", stop_after_first = true },
 			},
 			format_on_save = {
