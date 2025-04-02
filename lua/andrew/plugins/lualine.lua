@@ -8,10 +8,11 @@ return {
 
 		lualine.setup({
 			options = {
-				theme = "auto",
+				theme = "rose-pine-alt",
 				component_separators = "",
 				section_separators = { left = "", right = "" },
 				-- section_separators = { left = "", right = "" },
+				disabled_filetypes = { "NvimTree", "help" },
 			},
 			sections = {
 				lualine_a = {

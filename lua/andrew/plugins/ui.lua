@@ -10,13 +10,16 @@ return {
 		event = "BufReadPre",
 		priority = 1200,
 		config = function()
-			local colors = require("catppuccin.palettes.mocha")
+			-- local colors = require("catppuccin.palettes.mocha")
 			require("incline").setup({
 				highlight = {
 					groups = {
 						-- catppuccin
-						InclineNormal = { guibg = nil, guifg = colors.lavender },
-						InclineNormalNC = { guifg = colors.green, guibg = nil },
+						-- InclineNormal = { guibg = nil, guifg = colors.lavender },
+						-- InclineNormalNC = { guifg = colors.green, guibg = nil },
+						-- rose pine
+						InclineNormal = { guibg = nil, guifg = "##e0def4" },
+						InclineNormalNC = { guifg = "#9ccfd8", guibg = nil },
 					},
 				},
 				window = { margin = { vertical = 2, horizontal = 1 } },
@@ -75,7 +78,7 @@ return {
 		},
 	},
 	{
-		enabled = true,
+		enabled = false,
 		"nvim-tree/nvim-tree.lua",
 		config = function()
 			vim.g.loaded_netrw = 1
@@ -84,16 +87,6 @@ return {
 			require("nvim-tree").setup({
 				on_attach = function(bufnr)
 					local api = require("nvim-tree.api")
-
-					local function opts(desc)
-						return {
-							desc = "nvim-tree: " .. desc,
-							buffer = bufnr,
-							noremap = true,
-							silent = true,
-							nowait = true,
-						}
-					end
 
 					-- default mappings
 					api.config.mappings.default_on_attach(bufnr)

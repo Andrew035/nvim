@@ -1,7 +1,7 @@
 return {
 	{
 		-- catppuccin
-		enabled = true, -- dims the background color of inactive window
+		enabled = false, -- dims the background color of inactive window
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -11,7 +11,7 @@ return {
 				background = { -- :h background light = "latte",
 					dark = "mocha",
 				},
-				transparent_background = true, -- disables setting the background color.
+				transparent_background = false, -- disables setting the background color.
 				show_end_of_buffer = false, -- shows the '~' characters after the end of buffers term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
 				no_italic = false, -- Force no italic
 				no_bold = false, -- Force no bold
@@ -49,10 +49,10 @@ return {
 		"folke/tokyonight.nvim",
 		priority = 1000,
 		config = function()
-			local transparent = true -- set to true if you would like to enable transparency
+			local transparent = false -- set to true if you would like to enable transparency
 
 			require("tokyonight").setup({
-				style = "night",
+				style = "storm",
 				transparent = transparent,
 				styles = {
 					sidebars = transparent and "transparent" or "dark",
@@ -70,7 +70,7 @@ return {
 		end,
 	},
 	{
-		enabled = false,
+		enabled = true,
 		"rose-pine/neovim",
 		name = "rose-pine",
 		lazy = false,
@@ -80,7 +80,7 @@ return {
 				variant = "main",
 				dark_variant = "main",
 				dim_inactive_windows = false,
-				extend_background_behind_borders = true,
+				extend_background_behind_borders = false,
 				styles = {
 					bold = true,
 					italic = true,
