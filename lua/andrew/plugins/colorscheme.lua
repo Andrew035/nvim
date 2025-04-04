@@ -45,15 +45,19 @@ return {
 		end,
 	},
 	{
-		enabled = false,
+		enabled = true,
 		"folke/tokyonight.nvim",
 		priority = 1000,
 		config = function()
-			local transparent = false -- set to true if you would like to enable transparency
+			local transparent = true -- set to true if you would like to enable transparency
 
 			require("tokyonight").setup({
-				style = "storm",
+				style = "night",
+				light_style = "day",
+				day_brightness = 0.3,
 				transparent = transparent,
+				dim_inactive = false,
+				terminal_colors = true,
 				styles = {
 					sidebars = transparent and "transparent" or "dark",
 					floats = transparent and "transparent" or "dark",
@@ -62,6 +66,9 @@ return {
 					functions = {},
 					variables = {},
 				},
+				plugins = {},
+				lualine_bold = false,
+				cache = true,
 				on_highlights = function(hl, c) end,
 				on_colors = function(colors) end,
 			})
@@ -70,7 +77,7 @@ return {
 		end,
 	},
 	{
-		enabled = true,
+		enabled = false,
 		"rose-pine/neovim",
 		name = "rose-pine",
 		lazy = false,
