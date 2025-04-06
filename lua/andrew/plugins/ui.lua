@@ -19,7 +19,7 @@ return {
 						-- InclineNormalNC = { guifg = colors.green, guibg = nil },
 						-- rose pine
 						InclineNormal = { guibg = nil, guifg = "##e0def4" },
-						InclineNormalNC = { guifg = "#9ccfd8", guibg = nil },
+						InclineNormalNC = { guifg = "#e0def4", guibg = nil },
 					},
 				},
 				window = { margin = { vertical = 2, horizontal = 1 } },

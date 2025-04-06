@@ -108,4 +108,50 @@ return {
 			vim.opt.fillchars = { eob = " " }
 		end,
 	},
+	{
+		enabled = false,
+		"tiagovla/tokyodark.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("tokyodark").setup({
+				transparent_background = true,
+			})
+			vim.cmd.colorscheme("tokyodark")
+			vim.opt.fillchars = { eob = " " }
+		end,
+	},
+	{
+		enabled = false,
+		"craftzdog/solarized-osaka.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("solarized-osaka").setup({
+				transparent = true,
+				styles = {
+					sidebars = "transparent",
+					floats = "transparent",
+				},
+			})
+			vim.cmd.colorscheme("solarized-osaka")
+			vim.opt.fillchars = { eob = " " }
+		end,
+	},
+	{
+		enabled = false,
+		"olimorris/onedarkpro.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("onedarkpro").setup({
+				options = {
+					transparency = true,
+					lualine_transparency = true,
+				},
+			})
+			vim.cmd.colorscheme("onedark_dark")
+			vim.opt.fillchars = { eob = " " }
+		end,
+	},
 }
