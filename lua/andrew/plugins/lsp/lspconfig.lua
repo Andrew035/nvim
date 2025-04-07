@@ -7,52 +7,50 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
-
-		-- import mason_lspconfig plugin
 		local mason_lspconfig = require("mason-lspconfig")
-
-		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
+		capabilities.offsetEncoding = { "utf-16" } -- for clangd speedup
 
-		-- Change the Diagnostic symbols in the sign column (gutter)
-		-- (not in youtube nvim video)
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-
-		-- Configure the signs for each diagnostic level
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
-			vim.api.nvim_set_hl(0, hl, { default = true }) -- optional: ensure highlight group exists
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		-- Set diagnostic config
 		vim.diagnostic.config({
-			signs = true, -- enables use of the signs you defined above
-			virtual_text = true,
+			virtual_text = {
+				spacing = 4,
+				prefix = "■",
+			},
+			signs = true,
 			underline = true,
 			update_in_insert = false,
 			severity_sort = true,
 		})
 
+		local default_handler = function(server_name)
+			lspconfig[server_name].setup({
+				capabilities = capabilities,
+				flags = {
+					debounce_text_changes = 150,
+				},
+			})
+		end
+
 		mason_lspconfig.setup_handlers({
-			-- default handler for installed servers
-			function(server_name)
-				lspconfig[server_name].setup({
+			default_handler,
+			["tsserver"] = function()
+				lspconfig.tsserver.setup({
 					capabilities = capabilities,
-				})
-			end,
-			["ts_ls"] = function()
-				lspconfig["ts_ls"].setup({
-					capabilities = capabilities,
+					flags = { debounce_text_changes = 150 },
 					settings = {
 						typescript = {
 							inlayHints = {
-								includeInlayParameterNameHints = "literal",
+								includeInlayParameterNameHints = "all",
 								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
 								includeInlayFunctionParameterTypeHints = true,
 								includeInlayVariableTypeHints = false,
@@ -76,14 +74,17 @@ return {
 				})
 			end,
 			["lua_ls"] = function()
-				-- configure lua server (with special settings)
-				lspconfig["lua_ls"].setup({
+				lspconfig.lua_ls.setup({
 					capabilities = capabilities,
+					flags = { debounce_text_changes = 150 },
 					settings = {
 						Lua = {
-							-- make the language server recognize "vim" global
 							diagnostics = {
 								globals = { "vim" },
+								disable = { "undefined-field" }, -- disable false warning about 'sign_define'
+							},
+							workspace = {
+								checkThirdParty = false,
 							},
 							completion = {
 								callSnippet = "Replace",

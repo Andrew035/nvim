@@ -1,7 +1,7 @@
 return {
 	{
 		-- catppuccin
-		enabled = false, -- dims the background color of inactive window
+		enabled = true, -- dims the background color of inactive window
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -45,7 +45,7 @@ return {
 		end,
 	},
 	{
-		enabled = true,
+		enabled = false,
 		"folke/tokyonight.nvim",
 		priority = 1000,
 		config = function()
@@ -107,7 +107,7 @@ return {
 				before_highlight = function(group, highlight, palette) end,
 			})
 			vim.cmd.colorscheme("rose-pine")
-			vim.opt.fillchars = { eob = " " }
+			vim.opt.fillchars = { eob = " ", get = "", append = "", prepend = "", remove = "" }
 		end,
 	},
 	{
@@ -120,7 +120,7 @@ return {
 				transparent_background = true,
 			})
 			vim.cmd.colorscheme("tokyodark")
-			vim.opt.fillchars = { eob = " " }
+			vim.opt.fillchars = { eob = " ", get = "", append = "", prepend = "", remove = "" }
 		end,
 	},
 	{
@@ -137,7 +137,7 @@ return {
 				},
 			})
 			vim.cmd.colorscheme("solarized-osaka")
-			vim.opt.fillchars = { eob = " " }
+			vim.opt.fillchars = { eob = " ", get = "", append = "", prepend = "", remove = "" }
 		end,
 	},
 	{
@@ -153,7 +153,7 @@ return {
 				},
 			})
 			vim.cmd.colorscheme("onedark_dark")
-			vim.opt.fillchars = { eob = " " }
+			vim.opt.fillchars = { eob = " ", get = "", append = "", prepend = "", remove = "" }
 		end,
 	},
 }

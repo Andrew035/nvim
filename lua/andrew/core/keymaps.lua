@@ -5,7 +5,7 @@ local opts = { noremap = true, silent = true }
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", ";nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Save file and quit
 keymap.set("n", "<Leader>w", ":update<Return>", opts)

@@ -39,9 +39,10 @@ return {
 		},
 		quickfile = { enabled = true },
 		scope = { enabled = true },
-		scroll = { enabled = false },
+		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
+		image = { enabled = true },
 	},
 	keys = {
 		-- Top Pickers & Explorer
@@ -458,21 +459,6 @@ return {
 				Snacks.rename.rename_file()
 			end,
 			desc = "Rename File",
-		},
-		{
-			"<leader>gB",
-			function()
-				Snacks.gitbrowse()
-			end,
-			desc = "Git Browse",
-			mode = { "n", "v" },
-		},
-		{
-			"<leader>gg",
-			function()
-				Snacks.lazygit()
-			end,
-			desc = "Lazygit",
 		},
 		{
 			"<leader>un",

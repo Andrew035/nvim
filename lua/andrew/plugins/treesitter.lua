@@ -22,6 +22,7 @@ return {
 			},
 			-- ensure these language parsers are installed
 			ensure_installed = {
+				"regex",
 				"json",
 				"javascript",
 				"typescript",
@@ -30,8 +31,6 @@ return {
 				"html",
 				"css",
 				"prisma",
-				-- "markdown",
-				-- "markdown_inline",
 				"svelte",
 				"graphql",
 				"bash",
@@ -50,6 +49,11 @@ return {
 				"make",
 				"go",
 				"haskell",
+				"latex",
+				"scss",
+				"typst",
+				"vue",
+				"norg",
 			},
 			incremental_selection = {
 				enable = true,
@@ -60,6 +64,7 @@ return {
 					node_decremental = "<bs>",
 				},
 			},
+			sync_install = false,
 		})
 	end,
 }
