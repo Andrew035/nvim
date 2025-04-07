@@ -1,4 +1,5 @@
 return {
+	enabled = true,
 	"folke/snacks.nvim",
 	priority = 1000,
 	lazy = false,
@@ -38,7 +39,7 @@ return {
 		},
 		quickfile = { enabled = true },
 		scope = { enabled = true },
-		scroll = { enabled = true },
+		scroll = { enabled = false },
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
 	},
@@ -267,7 +268,7 @@ return {
 			desc = "Buffer Diagnostics",
 		},
 		{
-			"<leader>sh",
+			"<leader>ph",
 			function()
 				Snacks.picker.help()
 			end,

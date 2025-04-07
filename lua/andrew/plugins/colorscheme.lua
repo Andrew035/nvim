@@ -11,7 +11,7 @@ return {
 				background = { -- :h background light = "latte",
 					dark = "mocha",
 				},
-				transparent_background = false, -- disables setting the background color.
+				transparent_background = true, -- disables setting the background color.
 				show_end_of_buffer = false, -- shows the '~' characters after the end of buffers term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
 				no_italic = false, -- Force no italic
 				no_bold = false, -- Force no bold
@@ -70,7 +70,9 @@ return {
 				lualine_bold = false,
 				cache = true,
 				on_highlights = function(hl, c) end,
-				on_colors = function(colors) end,
+				on_colors = function(colors)
+					colors.bg_statusline = colors.none
+				end,
 			})
 			vim.cmd("colorscheme tokyonight")
 			vim.opt.fillchars = { eob = " " }

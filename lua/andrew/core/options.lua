@@ -40,3 +40,6 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.swapfile = false
 
 opt.showtabline = 0
+
+opt.hlsearch = false
+opt.incsearch = true
