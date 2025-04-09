@@ -79,7 +79,7 @@ return {
 		end,
 	},
 	{
-		enabled = true,
+		enabled = false,
 		"rose-pine/neovim",
 		name = "rose-pine",
 		lazy = false,
@@ -124,7 +124,7 @@ return {
 		end,
 	},
 	{
-		enabled = false,
+		enabled = true,
 		"craftzdog/solarized-osaka.nvim",
 		lazy = false,
 		priority = 1000,
@@ -137,7 +137,7 @@ return {
 				},
 			})
 			vim.cmd.colorscheme("solarized-osaka")
-			vim.opt.fillchars = { eob = " ", get = "", append = "", prepend = "", remove = "" }
+			vim.opt.fillchars = { eob = " " }
 		end,
 	},
 	{
@@ -152,8 +152,21 @@ return {
 					lualine_transparency = true,
 				},
 			})
-			vim.cmd.colorscheme("onedark_dark")
-			vim.opt.fillchars = { eob = " ", get = "", append = "", prepend = "", remove = "" }
+			vim.cmd.colorscheme("onedark_vivid")
+			vim.opt.fillchars = { eob = " " }
+		end,
+	},
+	{
+		enabled = false,
+		"gbprod/nord.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("nord").setup({
+				transparent = true,
+			})
+			vim.cmd.colorscheme("nord")
+			vim.opt.fillchars = { eob = " " }
 		end,
 	},
 }
