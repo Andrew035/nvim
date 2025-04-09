@@ -11,68 +11,96 @@ return {
 				theme = "rose-pine-alt",
 				component_separators = "",
 				section_separators = { left = "", right = "" },
-				-- section_separators = { left = "", right = "" },
 				disabled_filetypes = { "NvimTree", "help" },
 			},
 			sections = {
-				lualine_a = {
-					{
-						"mode",
-						separator = { left = "", right = "" },
-						-- separator = { left = "", right = "" },
-						right_padding = 2,
-					},
-				},
-				lualine_b = {
-					{
-						"filename",
-					},
-					"branch",
-				},
+				lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+				lualine_b = { "filename", "branch" },
 				lualine_c = {
-					{
-						"searchcount",
-						maxcount = 999,
-						timeout = 500,
-					},
+					"%=", --[[ add your center components here in place of this comment ]]
 				},
-				lualine_x = {
-					{
-						"filetype",
-						colored = true,
-					},
-				},
-				lualine_y = {
-					{
-						"datetime",
-						style = "%H:%M:%S",
-					},
-				},
+				lualine_x = {},
+				lualine_y = { "filetype", "progress" },
 				lualine_z = {
-					{
-						"location",
-						separator = { left = "", right = "" },
-						-- separator = { left = "", right = "" },
-						left_padding = 2,
-					},
+					{ "location", separator = { right = "" }, left_padding = 2 },
 				},
 			},
 			inactive_sections = {
-				lualine_a = {
-					{
-						"filename",
-						file_status = true,
-						path = 1,
-					},
-					"diagnostics",
-					"diff",
-				},
+				lualine_a = { "filename" },
 				lualine_b = {},
 				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = { "location" },
 			},
+			tabline = {},
+			extensions = {},
+			-- options = {
+			-- 	theme = "rose-pine-alt",
+			-- 	component_separators = "",
+			-- 	section_separators = { left = "", right = "" },
+			-- 	-- section_separators = { left = "", right = "" },
+			-- 	disabled_filetypes = { "NvimTree", "help" },
+			-- },
+			-- sections = {
+			-- 	lualine_a = {
+			-- 		{
+			-- 			"mode",
+			-- 			separator = { left = "", right = "" },
+			-- 			-- separator = { left = "", right = "" },
+			-- 			right_padding = 2,
+			-- 		},
+			-- 	},
+			-- 	lualine_b = {
+			-- 		{
+			-- 			"filename",
+			-- 		},
+			-- 		"branch",
+			-- 	},
+			-- 	lualine_c = {
+			-- 		{
+			-- 			"searchcount",
+			-- 			maxcount = 999,
+			-- 			timeout = 500,
+			-- 		},
+			-- 	},
+			-- 	lualine_x = {
+			-- 		{
+			-- 			"filetype",
+			-- 			colored = true,
+			-- 		},
+			-- 	},
+			-- 	lualine_y = {
+			-- 		{
+			-- 			"datetime",
+			-- 			style = "%H:%M:%S",
+			-- 		},
+			-- 	},
+			-- 	lualine_z = {
+			-- 		{
+			-- 			"location",
+			-- 			separator = { left = "", right = "" },
+			-- 			-- separator = { left = "", right = "" },
+			-- 			left_padding = 2,
+			-- 		},
+			-- 	},
+			-- },
+			-- inactive_sections = {
+			-- 	lualine_a = {
+			-- 		{
+			-- 			"filename",
+			-- 			file_status = true,
+			-- 			path = 1,
+			-- 		},
+			-- 		"diagnostics",
+			-- 		"diff",
+			-- 	},
+			-- 	lualine_b = {},
+			-- 	lualine_c = {},
+			-- 	lualine_x = {},
+			-- 	lualine_y = {},
+			-- 	lualine_z = { "location" },
+			-- },
 		})
 	end,
 }
