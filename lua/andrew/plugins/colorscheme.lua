@@ -11,7 +11,7 @@ return {
 				background = { -- :h background light = "latte",
 					dark = "mocha",
 				},
-				transparent_background = false, -- disables setting the background color.
+				transparent_background = true, -- disables setting the background color.
 				show_end_of_buffer = false, -- shows the '~' characters after the end of buffers term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
 				no_italic = false, -- Force no italic
 				no_bold = false, -- Force no bold
@@ -71,7 +71,7 @@ return {
 				cache = true,
 				on_highlights = function(hl, c) end,
 				on_colors = function(colors)
-					colors.bg_statusline = colors.none
+					colors.bg_statusline = transparent and colors.none
 				end,
 			})
 			vim.cmd("colorscheme tokyonight")
@@ -124,7 +124,7 @@ return {
 		end,
 	},
 	{
-		enabled = true,
+		enabled = false,
 		"craftzdog/solarized-osaka.nvim",
 		lazy = false,
 		priority = 1000,
@@ -166,6 +166,70 @@ return {
 				transparent = true,
 			})
 			vim.cmd.colorscheme("nord")
+			vim.opt.fillchars = { eob = " " }
+		end,
+	},
+	{
+		enabled = false,
+		"ellisonleao/gruvbox.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("gruvbox").setup({
+				transparent_mode = true,
+			})
+			vim.cmd.colorscheme("gruvbox")
+			vim.opt.fillchars = { eob = " " }
+		end,
+	},
+	{
+		enabled = false,
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("kanagawa").setup({
+				transparent = true,
+				theme = "wave",
+				background = {
+					dark = "wave",
+					light = "lotus",
+				},
+				colors = {
+					theme = {
+						all = {
+							ui = { bg_gutter = "none" },
+						},
+					},
+				},
+				overrides = function(colors)
+					local theme = colors.theme
+					return {
+						NormalFloat = { bg = "none" },
+						FloatBorder = { bg = "none" },
+						FloatTitle = { bg = "none" },
+					}
+				end,
+			})
+			vim.cmd.colorscheme("kanagawa")
+			vim.opt.fillchars = { eob = " " }
+		end,
+	},
+	{
+		enabled = true,
+		"slugbyte/lackluster.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("lackluster").setup({
+				tweak_background = {
+					normal = "none",
+					telescope = "none",
+					menu = "none",
+					popup = "none",
+				},
+			})
+			vim.cmd.colorscheme("lackluster")
 			vim.opt.fillchars = { eob = " " }
 		end,
 	},

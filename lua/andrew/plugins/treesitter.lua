@@ -54,6 +54,8 @@ return {
 				"typst",
 				"vue",
 				"norg",
+				"markdown",
+				"markdown_inline",
 			},
 			incremental_selection = {
 				enable = true,
