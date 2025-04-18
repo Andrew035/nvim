@@ -11,7 +11,7 @@ return {
 				background = { -- :h background light = "latte",
 					dark = "mocha",
 				},
-				transparent_background = true, -- disables setting the background color.
+				transparent_background = false, -- disables setting the background color.
 				show_end_of_buffer = false, -- shows the '~' characters after the end of buffers term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
 				no_italic = false, -- Force no italic
 				no_bold = false, -- Force no bold
@@ -49,18 +49,16 @@ return {
 		"folke/tokyonight.nvim",
 		priority = 1000,
 		config = function()
-			local transparent = true -- set to true if you would like to enable transparency
-
 			require("tokyonight").setup({
 				style = "night",
 				light_style = "day",
 				day_brightness = 0.3,
-				transparent = transparent,
+				transparent = true,
 				dim_inactive = false,
 				terminal_colors = true,
 				styles = {
-					sidebars = transparent and "transparent" or "dark",
-					floats = transparent and "transparent" or "dark",
+					sidebars = "transparent",
+					floats = "transparent",
 					comments = {},
 					keywords = {},
 					functions = {},
@@ -71,7 +69,7 @@ return {
 				cache = true,
 				on_highlights = function(hl, c) end,
 				on_colors = function(colors)
-					colors.bg_statusline = transparent and colors.none
+					colors.bg_statusline = colors.none
 				end,
 			})
 			vim.cmd("colorscheme tokyonight")
@@ -120,7 +118,7 @@ return {
 				transparent_background = true,
 			})
 			vim.cmd.colorscheme("tokyodark")
-			vim.opt.fillchars = { eob = " ", get = "", append = "", prepend = "", remove = "" }
+			vim.opt.fillchars = { eob = " " }
 		end,
 	},
 	{
@@ -170,12 +168,33 @@ return {
 		end,
 	},
 	{
-		enabled = false,
+		enabled = true,
 		"ellisonleao/gruvbox.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
 			require("gruvbox").setup({
+				terminal_colors = true, -- add neovim terminal colors
+				undercurl = true,
+				underline = true,
+				bold = true,
+				italic = {
+					strings = true,
+					emphasis = true,
+					comments = true,
+					operators = false,
+					folds = true,
+				},
+				strikethrough = true,
+				invert_selection = false,
+				invert_signs = false,
+				invert_tabline = false,
+				invert_intend_guides = false,
+				inverse = true, -- invert background for search, diffs, statuslines and errors
+				contrast = "", -- can be "hard", "soft" or empty string
+				palette_overrides = {},
+				overrides = {},
+				dim_inactive = false,
 				transparent_mode = true,
 			})
 			vim.cmd.colorscheme("gruvbox")
@@ -216,7 +235,7 @@ return {
 		end,
 	},
 	{
-		enabled = true,
+		enabled = false,
 		"slugbyte/lackluster.nvim",
 		lazy = false,
 		priority = 1000,
@@ -228,8 +247,37 @@ return {
 					menu = "none",
 					popup = "none",
 				},
+				disable_plugin = {},
 			})
 			vim.cmd.colorscheme("lackluster")
+			vim.opt.fillchars = { eob = " " }
+		end,
+	},
+	{
+		enabled = false,
+		"olivercederborg/poimandres.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("poimandres").setup({
+				disable_background = true,
+				disable_float_background = true,
+			})
+			vim.cmd.colorscheme("poimandres")
+			vim.opt.fillchars = { eob = " " }
+		end,
+	},
+	{
+		enabled = false,
+		"Mofiqul/vscode.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("vscode").setup({
+				transparent = true,
+				disable_nvimtree_bg = true,
+			})
+			vim.cmd.colorscheme("vscode")
 			vim.opt.fillchars = { eob = " " }
 		end,
 	},
