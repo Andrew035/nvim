@@ -39,6 +39,7 @@ return {
 				markdown = { "prettier" },
 				-- sql = { "sqlfmt" },
 				css = { "prettier", stop_after_first = true },
+				vue = { "prettier" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

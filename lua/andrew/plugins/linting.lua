@@ -4,12 +4,13 @@ return {
 	config = function()
 		local lint = require("lint")
 
-		-- lint.linters_by_ft = {
-		-- 	svelte = { "eslint_d" },
-		-- 	python = { "pylint" },
-		-- 	cpp = { "clangtidy" },
-		-- 	c = { "clangtidy" },
-		-- }
+		lint.linters_by_ft = {
+			javascript = { "eslint_d" },
+			svelte = { "eslint_d" },
+			python = { "pylint" },
+			cpp = { "clangtidy" },
+			c = { "clangtidy" },
+		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 

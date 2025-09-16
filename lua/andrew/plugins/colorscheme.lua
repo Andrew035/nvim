@@ -1,7 +1,7 @@
 return {
 	{
 		-- catppuccin
-		enabled = false, -- dims the background color of inactive window
+		enabled = true, -- dims the background color of inactive window
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -17,15 +17,18 @@ return {
 				no_bold = false, -- Force no bold
 				no_underline = false, -- Force no underline
 				term_colors = true,
-				styles = {},
+				styles = {
+					functions = { "bold", "italic" },
+					booleans = { "bold" },
+				},
 				color_overrides = {},
 				custom_highlights = {},
 				highlight_overrides = {
-					mocha = function(colors)
-						return {
-							LineNr = { fg = colors.overlay0 },
-						}
-					end,
+					-- mocha = function(colors)
+					-- 	return {
+					-- 		LineNr = { fg = colors.overlay0 },
+					-- 	}
+					-- end,
 				},
 				default_integrations = true,
 				integrations = {
@@ -35,7 +38,7 @@ return {
 					treesitter = true,
 					notify = false,
 					mini = {
-						enabled = true,
+						enabled = false,
 						indentscope_color = "",
 					},
 				},
@@ -53,12 +56,12 @@ return {
 				style = "night",
 				light_style = "day",
 				day_brightness = 0.3,
-				transparent = true,
+				transparent = false,
 				dim_inactive = false,
 				terminal_colors = true,
 				styles = {
-					sidebars = "transparent",
-					floats = "transparent",
+					-- sidebars = "transparent",
+					-- floats = "transparent",
 					comments = {},
 					keywords = {},
 					functions = {},
@@ -91,7 +94,7 @@ return {
 				styles = {
 					bold = true,
 					italic = true,
-					transparency = true,
+					transparency = false,
 				},
 				enable = {
 					terminal = true,
@@ -115,9 +118,63 @@ return {
 		priority = 1000,
 		config = function()
 			require("tokyodark").setup({
-				transparent_background = true,
+				transparent_background = false,
 			})
 			vim.cmd.colorscheme("tokyodark")
+			vim.opt.fillchars = { eob = " " }
+		end,
+	},
+	{
+		enabled = false,
+		"EdenEast/nightfox.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			-- Default options
+			require("nightfox").setup({
+				options = {
+					-- Compiled file's destination location
+					compile_path = vim.fn.stdpath("cache") .. "/nightfox",
+					compile_file_suffix = "_compiled", -- Compiled file suffix
+					transparent = false, -- Disable setting background
+					terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+					dim_inactive = false, -- Non focused panes set to alternative background
+					module_default = true, -- Default enable value for modules
+					colorblind = {
+						enable = false, -- Enable colorblind support
+						simulate_only = false, -- Only show simulated colorblind colors and not diff shifted
+						severity = {
+							protan = 0, -- Severity [0,1] for protan (red)
+							deutan = 0, -- Severity [0,1] for deutan (green)
+							tritan = 0, -- Severity [0,1] for tritan (blue)
+						},
+					},
+					styles = { -- Style to be applied to different syntax groups
+						comments = "italic", -- Value is any valid attr-list value `:help attr-list`
+						conditionals = "bold",
+						constants = "bold",
+						functions = "italic",
+						keywords = "NONE",
+						numbers = "bold",
+						operators = "NONE",
+						strings = "NONE",
+						types = "italic,bold",
+						variables = "NONE",
+					},
+					inverse = { -- Inverse highlight for different types
+						match_paren = false,
+						visual = false,
+						search = false,
+					},
+					modules = { -- List of various plugins and additional options
+						-- ...
+					},
+				},
+				palettes = {},
+				specs = {},
+				groups = {},
+			})
+			vim.cmd.colorscheme("nightfox")
 			vim.opt.fillchars = { eob = " " }
 		end,
 	},
@@ -168,7 +225,7 @@ return {
 		end,
 	},
 	{
-		enabled = true,
+		enabled = false,
 		"ellisonleao/gruvbox.nvim",
 		lazy = false,
 		priority = 1000,
@@ -208,7 +265,7 @@ return {
 		priority = 1000,
 		config = function()
 			require("kanagawa").setup({
-				transparent = true,
+				transparent = false,
 				theme = "wave",
 				background = {
 					dark = "wave",
@@ -278,6 +335,43 @@ return {
 				disable_nvimtree_bg = true,
 			})
 			vim.cmd.colorscheme("vscode")
+			vim.opt.fillchars = { eob = " " }
+		end,
+	},
+	{
+		enabled = false,
+		"shrikecode/kyotonight.vim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			local g = vim.g
+
+			g.kyotonight_bold = 1
+			g.kyotonight_underline = 1
+			g.kyotonight_italic = 1
+			g.kyotonight_italic_comments = 1
+			g.kyotonight_uniform_status_lines = 0
+			g.kyotonight_bold_vertical_split_line = 1
+			g.kyotonight_cursor_line_number_background = 0
+			g.kyotonight_uniform_diff_background = 0
+			g.kyotonight_lualine_bold = 1
+
+			vim.cmd([[colorscheme kyotonight]])
+			vim.opt.fillchars = { eob = " " }
+		end,
+	},
+	{
+		enabled = false,
+		"sainnhe/everforest",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.g.everforest_enable_italic = true
+			vim.g.everforest_background = "medium" -- hard, medium, soft
+			vim.g.everforest_better_performance = 1
+			vim.g.everforest_cursor = "green"
+			vim.g.everforest_float_style = "none" -- bright, dim, none
+			vim.cmd.colorscheme("everforest")
 			vim.opt.fillchars = { eob = " " }
 		end,
 	},

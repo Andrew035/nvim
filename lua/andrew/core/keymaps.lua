@@ -8,9 +8,9 @@ keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set("n", ";nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Save file and quit
-keymap.set("n", "<Leader>w", ":update<Return>", opts)
-keymap.set("n", "<Leader>q", ":quit<Return>", opts)
-keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
+keymap.set("n", ";w", ":update<Return>", opts)
+keymap.set("n", ";q", ":quit<Return>", opts)
+keymap.set("n", ";Q", ":qa<Return>", opts)
 
 -- Tab and Text Manipulation
 keymap.set("n", "L", ":tabnext<Return>", opts)

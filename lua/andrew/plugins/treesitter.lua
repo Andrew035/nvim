@@ -22,7 +22,7 @@ return {
 			},
 			-- ensure these language parsers are installed
 			ensure_installed = {
-				"regex",
+				-- "regex",
 				"json",
 				"javascript",
 				"typescript",
@@ -33,7 +33,7 @@ return {
 				"prisma",
 				"svelte",
 				"graphql",
-				"bash",
+				-- "bash",
 				"lua",
 				"vim",
 				"dockerfile",
@@ -56,6 +56,7 @@ return {
 				"norg",
 				"markdown",
 				"markdown_inline",
+				"lua",
 			},
 			incremental_selection = {
 				enable = true,
