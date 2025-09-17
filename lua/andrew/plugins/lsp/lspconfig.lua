@@ -123,6 +123,14 @@ return {
 				"scss",
 				"less",
 				"svelte",
+				"vue",
+			},
+			init_options = {
+				html = {
+					options = {
+						["bem.enabled"] = true,
+					},
+				},
 			},
 		})
 
@@ -140,6 +148,7 @@ return {
 				"scss",
 				"pug",
 				"typescriptreact",
+				"vue",
 			},
 			init_options = {
 				includeLanguages = {},
@@ -174,7 +183,9 @@ return {
 				plugins = {
 					{
 						name = "@vue/typescript-plugin",
-						location = "/opt/homebrew/lib/node_modules/@vue/language-server",
+						location = vim.fn.expand(
+							"$MASON/packages/vue-language-server" .. "/node_modules/@vue/typescript-plugin"
+						),
 						languages = { "vue" },
 					},
 				},
@@ -184,8 +195,22 @@ return {
 				},
 			},
 		})
-		lspconfig.volar.setup({
-			capabilities = capabilities,
+
+		lspconfig.vue_ls.setup({
+			init_options = {
+				vue = {
+					hybridMode = false,
+				},
+			},
+			settings = {
+				inlayHints = {
+					enumMemberValues = { enabled = true },
+					functionLikeReturnTypes = { enabled = true },
+					propertyDeclarationTypes = { enabled = true },
+					parameterTypes = { enabled = true, suppressWhenArgumentMatchesName = true },
+					variableTypes = { enabled = true },
+				},
+			},
 		})
 
 		-- Add other LSP servers as needed, e.g., gopls, eslint, html, etc.
@@ -208,6 +233,7 @@ return {
 		})
 		lspconfig.cssls.setup({
 			capabilities = capabilities,
+			filetypes = { "css", "vue", "scss", "less" },
 			settings = {
 				css = {
 					validate = true,
@@ -229,7 +255,6 @@ return {
 				},
 			},
 		})
-		-- lspconfig.eslint.setup({ capabilities = capabilities })
 		lspconfig.clangd.setup({ capabilities = capabilities })
 		lspconfig.pyright.setup({
 			capabilities = capabilities,

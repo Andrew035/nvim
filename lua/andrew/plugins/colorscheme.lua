@@ -94,7 +94,7 @@ return {
 				styles = {
 					bold = true,
 					italic = true,
-					transparency = false,
+					transparency = true,
 				},
 				enable = {
 					terminal = true,
@@ -146,7 +146,7 @@ return {
 						severity = {
 							protan = 0, -- Severity [0,1] for protan (red)
 							deutan = 0, -- Severity [0,1] for deutan (green)
-							tritan = 0, -- Severity [0,1] for tritan (blue)
+							tritan = 1, -- Severity [0,1] for tritan (blue)
 						},
 					},
 					styles = { -- Style to be applied to different syntax groups
@@ -203,11 +203,11 @@ return {
 		config = function()
 			require("onedarkpro").setup({
 				options = {
-					transparency = true,
+					transparency = false,
 					lualine_transparency = true,
 				},
 			})
-			vim.cmd.colorscheme("onedark_vivid")
+			vim.cmd.colorscheme("onedark")
 			vim.opt.fillchars = { eob = " " }
 		end,
 	},
@@ -252,7 +252,7 @@ return {
 				palette_overrides = {},
 				overrides = {},
 				dim_inactive = false,
-				transparent_mode = true,
+				transparent_mode = false,
 			})
 			vim.cmd.colorscheme("gruvbox")
 			vim.opt.fillchars = { eob = " " }
