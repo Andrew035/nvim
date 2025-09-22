@@ -11,7 +11,7 @@ return {
 				theme = "auto",
 				component_separators = "",
 				-- section_separators = { left = "", right = "" },
-				-- section_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
 				disabled_filetypes = { "NvimTree", "help" },
 			},
 			sections = {
@@ -19,7 +19,7 @@ return {
 					{
 						"mode",
 						-- separator = { left = "", right = "" },
-						-- separator = { left = "", right = "" },
+						separator = { left = "", right = "" },
 						right_padding = 2,
 					},
 				},
@@ -52,7 +52,7 @@ return {
 					{
 						"location",
 						-- separator = { left = "", right = "" },
-						-- separator = { left = "", right = "" },
+						separator = { left = "", right = "" },
 						left_padding = 2,
 					},
 				},

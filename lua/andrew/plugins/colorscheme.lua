@@ -1,7 +1,7 @@
 return {
 	{
 		-- catppuccin
-		enabled = true, -- dims the background color of inactive window
+		enabled = false, -- dims the background color of inactive window
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -146,7 +146,7 @@ return {
 						severity = {
 							protan = 0, -- Severity [0,1] for protan (red)
 							deutan = 0, -- Severity [0,1] for deutan (green)
-							tritan = 1, -- Severity [0,1] for tritan (blue)
+							tritan = 0, -- Severity [0,1] for tritan (blue)
 						},
 					},
 					styles = { -- Style to be applied to different syntax groups
@@ -174,7 +174,7 @@ return {
 				specs = {},
 				groups = {},
 			})
-			vim.cmd.colorscheme("nightfox")
+			vim.cmd.colorscheme("duskfox")
 			vim.opt.fillchars = { eob = " " }
 		end,
 	},
@@ -225,7 +225,7 @@ return {
 		end,
 	},
 	{
-		enabled = false,
+		enabled = true,
 		"ellisonleao/gruvbox.nvim",
 		lazy = false,
 		priority = 1000,
@@ -299,14 +299,14 @@ return {
 		config = function()
 			require("lackluster").setup({
 				tweak_background = {
-					normal = "none",
+					normal = "default",
 					telescope = "none",
 					menu = "none",
 					popup = "none",
 				},
 				disable_plugin = {},
 			})
-			vim.cmd.colorscheme("lackluster")
+			vim.cmd.colorscheme("lackluster-hack")
 			vim.opt.fillchars = { eob = " " }
 		end,
 	},
