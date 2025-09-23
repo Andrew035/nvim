@@ -1,7 +1,7 @@
 return {
 	{
 		-- catppuccin
-		enabled = false, -- dims the background color of inactive window
+		enabled = true, -- dims the background color of inactive window
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -17,10 +17,14 @@ return {
 				no_bold = false, -- Force no bold
 				no_underline = false, -- Force no underline
 				term_colors = true,
-				styles = {
-					functions = { "bold", "italic" },
-					booleans = { "bold" },
+				float = {
+					transparent = true,
+					solid = false,
 				},
+				-- styles = {
+				-- 	functions = { "bold", "italic" },
+				-- 	booleans = { "bold" },
+				-- },
 				color_overrides = {},
 				custom_highlights = {},
 				highlight_overrides = {
@@ -225,7 +229,7 @@ return {
 		end,
 	},
 	{
-		enabled = true,
+		enabled = false,
 		"ellisonleao/gruvbox.nvim",
 		lazy = false,
 		priority = 1000,
@@ -247,7 +251,7 @@ return {
 				invert_signs = false,
 				invert_tabline = false,
 				invert_intend_guides = false,
-				inverse = true, -- invert background for search, diffs, statuslines and errors
+				inverse = false, -- invert background for search, diffs, statuslines and errors
 				contrast = "", -- can be "hard", "soft" or empty string
 				palette_overrides = {},
 				overrides = {},

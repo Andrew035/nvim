@@ -79,6 +79,14 @@ return {
 			virtual_text = true, -- Specify Enable virtual text for diagnostics
 			underline = true, -- Specify Underline diagnostics
 			update_in_insert = false, -- Keep diagnostics active in insert mode
+			float = {
+				focusable = false,
+				style = "minimal",
+				border = "rounded",
+				source = "if_many",
+				header = "",
+				prefix = "",
+			},
 		})
 
 		-- NOTE :
@@ -256,17 +264,12 @@ return {
 			},
 		})
 		lspconfig.clangd.setup({ capabilities = capabilities })
-		lspconfig.pyright.setup({
+		lspconfig.basedpyright.setup({
 			capabilities = capabilities,
 			settings = {
-				python = {
+				basedpyright = {
 					analysis = {
-						inlayHints = {
-							variableTypes = true,
-							functionReturnTypes = true,
-							callArgumentNames = true,
-							pytestParameters = true,
-						},
+						typeCheckingMode = "basic",
 					},
 				},
 			},
