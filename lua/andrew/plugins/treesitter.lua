@@ -1,10 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	event = { "BufReadPre", "BufNewFile" },
-	-- build = ":TSUpdate",
-	dependencies = {
-		"windwp/nvim-ts-autotag",
-	},
+	build = ":TSUpdate",
 	config = function()
 		-- import nvim-treesitter plugin
 		local treesitter = require("nvim-treesitter.configs")
@@ -15,14 +12,9 @@ return {
 				enable = true,
 			},
 			-- enable indentation
-			indent = { enable = true, disable = { "css" } },
-			-- enable autotagging (w/ nvim-ts-autotag plugin)
-			autotag = {
-				enable = true,
-			},
+			indent = { enable = true },
 			-- ensure these language parsers are installed
 			ensure_installed = {
-				-- "regex",
 				"json",
 				"javascript",
 				"typescript",
@@ -31,9 +23,11 @@ return {
 				"html",
 				"css",
 				"prisma",
+				"markdown",
+				"markdown_inline",
 				"svelte",
 				"graphql",
-				-- "bash",
+				"bash",
 				"lua",
 				"vim",
 				"dockerfile",
@@ -42,21 +36,8 @@ return {
 				"vimdoc",
 				"c",
 				"cpp",
-				"java",
-				"rst",
 				"python",
-				"asm",
-				"make",
-				"go",
-				"haskell",
-				"latex",
-				"scss",
-				"typst",
-				"vue",
-				"norg",
-				"markdown",
-				"markdown_inline",
-				"lua",
+				"tmux",
 			},
 			incremental_selection = {
 				enable = true,
@@ -67,7 +48,9 @@ return {
 					node_decremental = "<bs>",
 				},
 			},
-			sync_install = false,
 		})
+
+		-- use bash parser for zsh files
+		vim.treesitter.language.register("bash", "zsh")
 	end,
 }

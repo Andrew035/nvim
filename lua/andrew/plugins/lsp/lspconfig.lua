@@ -94,13 +94,16 @@ return {
 		-- as mason setup_handlers is deprecated & its causing issues with lsp settings
 		--
 		-- Setup servers
-		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
+		vim.lsp.config("*", {
+			capabilities = capabilities,
+		})
+
 		-- Config lsp servers here
 		-- lua_ls
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			settings = {
 				Lua = {
@@ -120,7 +123,7 @@ return {
 			},
 		})
 		-- emmet_ls
-		lspconfig.emmet_ls.setup({
+		vim.lsp.config("emmet_ls", {
 			capabilities = capabilities,
 			filetypes = {
 				"html",
@@ -131,7 +134,6 @@ return {
 				"scss",
 				"less",
 				"svelte",
-				"vue",
 			},
 			init_options = {
 				html = {
@@ -142,47 +144,47 @@ return {
 			},
 		})
 
-		-- emmet_language_server
-		lspconfig.emmet_language_server.setup({
-			capabilities = capabilities,
-			filetypes = {
-				"css",
-				"eruby",
-				"html",
-				"javascript",
-				"javascriptreact",
-				"less",
-				"sass",
-				"scss",
-				"pug",
-				"typescriptreact",
-				"vue",
-			},
-			init_options = {
-				includeLanguages = {},
-				excludeLanguages = {},
-				extensionsPath = {},
-				preferences = {},
-				showAbbreviationSuggestions = true,
-				showExpandedAbbreviation = "always",
-				showSuggestionsAsSnippets = false,
-				syntaxProfiles = {},
-				variables = {},
-			},
-		})
+		-- -- emmet_language_server
+		-- vim.lsp.config("emmet_language_server", {
+		-- 	capabilities = capabilities,
+		-- 	filetypes = {
+		-- 		"css",
+		-- 		"eruby",
+		-- 		"html",
+		-- 		"javascript",
+		-- 		"javascriptreact",
+		-- 		"less",
+		-- 		"sass",
+		-- 		"scss",
+		-- 		"pug",
+		-- 		"typescriptreact",
+		-- 		"vue",
+		-- 	},
+		-- 	init_options = {
+		-- 		includeLanguages = {},
+		-- 		excludeLanguages = {},
+		-- 		extensionsPath = {},
+		-- 		preferences = {},
+		-- 		showAbbreviationSuggestions = true,
+		-- 		showExpandedAbbreviation = "always",
+		-- 		showSuggestionsAsSnippets = false,
+		-- 		syntaxProfiles = {},
+		-- 		variables = {},
+		-- 	},
+		-- })
 
-		-- denols
-		lspconfig.denols.setup({
-			capabilities = capabilities,
-			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-		})
+		-- -- denols
+		-- vim.lsp.config("denols", {
+		-- 	capabilities = capabilities,
+		-- 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+		-- })
 
 		-- ts_ls (replaces tsserver)
-		lspconfig.ts_ls.setup({
+		vim.lsp.config("ts_ls", {
 			capabilities = capabilities,
 			filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue" },
 			root_dir = function(fname)
-				local util = lspconfig.util
+				local util = vim.lsp.util
 				return not util.root_pattern("deno.json", "deno.jsonc")(fname)
 					and util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")(fname)
 			end,
@@ -203,45 +205,14 @@ return {
 				},
 			},
 		})
-
-		lspconfig.vue_ls.setup({
-			init_options = {
-				vue = {
-					hybridMode = false,
-				},
-			},
-			settings = {
-				inlayHints = {
-					enumMemberValues = { enabled = true },
-					functionLikeReturnTypes = { enabled = true },
-					propertyDeclarationTypes = { enabled = true },
-					parameterTypes = { enabled = true, suppressWhenArgumentMatchesName = true },
-					variableTypes = { enabled = true },
-				},
-			},
-		})
-
 		-- Add other LSP servers as needed, e.g., gopls, eslint, html, etc.
 		-- lspconfig.gopls.setup({ capabilities = capabilities })
-		lspconfig.html.setup({
+		vim.lsp.config("html", {
 			capabilities = capabilities,
-			settings = {
-				html = {
-					format = {
-						templating = true,
-						wrapLineLength = 120,
-						wrapAttributes = "auto",
-					},
-					hover = {
-						documentation = true,
-						references = true,
-					},
-				},
-			},
 		})
-		lspconfig.cssls.setup({
+		vim.lsp.config("cssls", {
 			capabilities = capabilities,
-			filetypes = { "css", "vue", "scss", "less" },
+			filetypes = { "css", "scss", "less" },
 			settings = {
 				css = {
 					validate = true,
@@ -263,8 +234,8 @@ return {
 				},
 			},
 		})
-		lspconfig.clangd.setup({ capabilities = capabilities })
-		lspconfig.basedpyright.setup({
+		vim.lsp.config("clangd", { capabilities = capabilities })
+		vim.lsp.config("basedpyright", {
 			capabilities = capabilities,
 			settings = {
 				basedpyright = {
@@ -274,6 +245,5 @@ return {
 				},
 			},
 		})
-		lspconfig.marksman.setup({ capabilities = capabilities })
 	end,
 }
