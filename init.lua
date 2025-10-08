@@ -1,2 +1,2 @@
-require("andrew.core")
-require("andrew.lazy")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
