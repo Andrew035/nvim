@@ -125,8 +125,77 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("tokyonight").setup({})
-      vim.cmd.colorscheme("tokyonight-moon")
+      require("tokyonight").setup({
+        style = "moon",
+        on_colors = function(colors) end,
+        on_highlights = function(h, c) end,
+      })
+      vim.cmd.colorscheme("tokyonight-night")
+    end,
+  },
+  {
+    enabled = false,
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("solarized-osaka").setup({
+        transparent = false,
+        on_colors = function(colors) end,
+        on_highlights = function(highlights, colors) end,
+      })
+      require("solarized-osaka").setup()
+      vim.cmd.colorscheme("solarized-osaka")
+    end,
+  },
+  {
+    enabled = false,
+    "rose-pine/neovim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("rose-pine").setup({
+        variant = "moon", -- auto, main, moon, or dawn
+        dark_variant = "moon", -- main, moon, or dawn
+        dim_inactive_windows = false,
+        extend_background_behind_borders = true,
+
+        enable = {
+          terminal = true,
+          legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+          migrations = true, -- Handle deprecated options automatically
+        },
+
+        styles = {
+          bold = true,
+          italic = true,
+          transparency = false,
+        },
+
+        palette = {
+          -- Override the builtin palette per variant
+        },
+
+        -- NOTE: Highlight groups are extended (merged) by default. Disable this
+        -- per group via `inherit = false`
+        highlight_groups = {},
+
+        before_highlight = function(group, highlight, palette) end,
+      })
+
+      vim.cmd("colorscheme rose-pine")
+    end,
+  },
+  {
+    enabled = false,
+    "sainnhe/sonokai",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.sonokai_transparent_background = "1"
+      vim.g.sonokai_enable_italic = "1"
+      vim.g.sonokai_style = "andromeda"
+      vim.cmd.colorscheme("sonokai")
     end,
   },
 }
