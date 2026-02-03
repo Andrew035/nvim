@@ -1,6 +1,6 @@
 return {
   {
-    enabled = true,
+    enabled = false,
     "catppuccin/nvim",
     priority = 1000,
     lazy = false,
@@ -11,7 +11,7 @@ return {
           light = "latte",
           dark = "mocha",
         },
-        transparent_background = true, -- disables setting the background color.
+        transparent_background = false, -- disables setting the background color.
         float = {
           transparent = true, -- enable transparent floating windows
           solid = false, -- use solid styling for floating windows, see |winborder|
@@ -120,22 +120,40 @@ return {
     end,
   },
   {
+    enabled = false,
+    "slugbyte/lackluster.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("lackluster").setup({
+        tweak_background = {
+          normal = "default",
+          telescope = "default",
+          menu = "default",
+          popup = "default",
+        },
+        disable_plugin = {},
+      })
+      vim.cmd.colorscheme("lackluster-dark")
+    end,
+  },
+  {
     -- enabled = true,
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      local transparent = true -- set to true if you would like to enable transparency
+      local transparent = false -- set to true if you would like to enable transparency
 
-      local bg = "#011628"
-      local bg_dark = "#011423"
-      local bg_highlight = "#143652"
-      local bg_search = "#0A64AC"
-      local bg_visual = "#275378"
-      local fg = "#CBE0F0"
-      local fg_dark = "#B4D0E9"
-      local fg_gutter = "#627E97"
-      local border = "#547998"
+      -- local bg = "#011628"
+      -- local bg_dark = "#011423"
+      -- local bg_highlight = "#143651"
+      -- local bg_search = "#0A64AC"
+      -- local bg_visual = "#275378"
+      -- local fg = "#CBE0F0"
+      -- local fg_dark = "#B4D0E9"
+      -- local fg_gutter = "#627E97"
+      -- local border = "#547998"
 
       require("tokyonight").setup({
         style = "night",
@@ -146,24 +164,24 @@ return {
         },
         on_highlights = function(h, c) end,
         on_colors = function(colors)
-          colors.bg = bg
-          colors.bg_dark = transparent and colors.none or bg_dark
-          colors.bg_float = transparent and colors.none or bg_dark
-          colors.bg_highlight = bg_highlight
-          colors.bg_popup = bg_dark
-          colors.bg_search = bg_search
-          colors.bg_sidebar = transparent and colors.none or bg_dark
-          colors.bg_statusline = transparent and colors.none or bg_dark
-          colors.bg_visual = bg_visual
-          colors.border = border
-          colors.fg = fg
-          colors.fg_dark = fg_dark
-          colors.fg_float = fg
-          colors.fg_gutter = fg_gutter
-          colors.fg_sidebar = fg_dark
+          -- colors.bg = bg
+          -- colors.bg_dark = transparent and colors.none or bg_dark
+          -- colors.bg_float = transparent and colors.none or bg_dark
+          -- colors.bg_highlight = bg_highlight
+          -- colors.bg_popup = bg_dark
+          -- colors.bg_search = bg_search
+          -- colors.bg_sidebar = transparent and colors.none or bg_dark
+          -- colors.bg_statusline = transparent and colors.none or bg_dark
+          -- colors.bg_visual = bg_visual
+          -- colors.border = border
+          -- colors.fg = fg
+          -- colors.fg_dark = fg_dark
+          -- colors.fg_float = fg
+          -- colors.fg_gutter = fg_gutter
+          -- colors.fg_sidebar = fg_dark
         end,
       })
-      vim.cmd.colorscheme("tokyonight-night")
+      vim.cmd.colorscheme("tokyonight")
     end,
   },
   {
@@ -202,7 +220,7 @@ return {
         styles = {
           bold = true,
           italic = true,
-          transparency = false,
+          transparency = true,
         },
 
         palette = {
@@ -229,6 +247,62 @@ return {
       vim.g.sonokai_enable_italic = "1"
       vim.g.sonokai_style = "andromeda"
       vim.cmd.colorscheme("sonokai")
+    end,
+  },
+  {
+    enabled = true,
+    "ellisonleao/gruvbox.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("gruvbox").setup({
+        transparent_mode = false,
+      })
+      vim.cmd.colorscheme("gruvbox")
+    end,
+  },
+  {
+    enabled = false,
+    "loctvl842/monokai-pro.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("monokai-pro").setup({
+        transparent_background = false,
+      })
+
+      vim.cmd.colorscheme("monokai-pro")
+    end,
+  },
+  {
+    enabled = false,
+    "xero/miasma.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme miasma")
+    end,
+  },
+  {
+    enabled = false,
+    "sainnhe/gruvbox-material",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.gruvbox_material_enable_italic = true
+      vim.g.gruvbox_material_background = "hard"
+      vim.g.gruvbox_material_better_performance = 1
+      vim.cmd.colorscheme("gruvbox-material")
+    end,
+  },
+  {
+    enabled = false,
+    "uhs-robert/oasis.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("oasis").setup()
+      vim.cmd.colorscheme("oasis-night")
     end,
   },
 }
