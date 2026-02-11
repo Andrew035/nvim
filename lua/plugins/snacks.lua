@@ -2,6 +2,14 @@ return {
   "folke/snacks.nvim",
   opts = {
     picker = {
+      win = {
+        input = {
+          keys = {
+            ["<C-n>"] = { "list_down", mode = { "i", "n" } },
+            ["<C-p>"] = { "list_up", mode = { "i", "n" } },
+          },
+        },
+      },
       sources = {
         explorer = {
           auto_close = true,
