@@ -32,9 +32,6 @@ opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
--- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-
 -- split windows
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
@@ -46,3 +43,7 @@ opt.showtabline = 0
 
 opt.hlsearch = false
 opt.incsearch = true
+
+opt.cursorcolumn = false
+opt.smartindent = true
+opt.winborder = "rounded"
