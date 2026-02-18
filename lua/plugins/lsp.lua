@@ -13,4 +13,14 @@ return {
       })
     end,
   },
+  {
+    "neovim/nvim-lspconfig",
+    opts = function(_, opts)
+      opts.servers.pyright = {
+        mason = false,
+        autostart = false,
+      }
+      return opts
+    end,
+  },
 }

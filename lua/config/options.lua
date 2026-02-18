@@ -48,3 +48,5 @@ opt.incsearch = true
 opt.cursorcolumn = false
 opt.smartindent = true
 opt.winborder = "rounded"
+
+vim.g.lazyvim_python_lsp = "ruff"
