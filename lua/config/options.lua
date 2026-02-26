@@ -49,4 +49,5 @@ opt.cursorcolumn = false
 opt.smartindent = true
 opt.winborder = "rounded"
 
-vim.g.lazyvim_python_lsp = "ruff"
+vim.g.markdown_recommended_style = 0
+vim.g.lazyvim_python_lsp = "pyright"
