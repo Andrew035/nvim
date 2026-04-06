@@ -1,4 +1,5 @@
 return {
+	enabled = true,
 	"folke/noice.nvim",
 	event = "VeryLazy", -- Keeps your startup time insanely fast
 	dependencies = {
@@ -45,6 +46,24 @@ return {
 				},
 				opts = { skip = true }, -- Do not show them at all
 			},
+			{
+				filter = {
+					event = "lsp",
+					kind = "progress",
+				},
+				opts = { skip = true },
+			},
+		},
+		cmdline = {
+			enabled = true,
+			view = "cmdline",
+			opts = {},
+		},
+		messages = {
+			enabled = true,
+			view = "mini",
+			view_error = "mini",
+			view_warn = "mini",
 		},
 		views = {
 			cmdline_popup = {

@@ -12,7 +12,6 @@ return {
 	},
 	{
 		"williamboman/mason.nvim",
-		-- lazy = false,
 		event = "VeryLazy",
 		config = function()
 			require("mason").setup()
@@ -138,24 +137,23 @@ return {
 							end,
 						})
 					end,
-					-- pyright = function()
-					-- 	require("lspconfig").pyright.setup({
-					-- 		settings = {
-					-- 			pyright = {
-					-- 				disableOrganizeImports = true,
-					-- 			},
-					-- 			python = {
-					-- 				analysis = {
-					-- 					diagnosticSeverityOverrides = {
-					-- 						reportUnusedImport = "none",
-					-- 						reportUnusedVariable = "none",
-					-- 						reportDuplicateImport = "none",
-					-- 					},
-					-- 				},
-					-- 			},
-					-- 		},
-					-- 	})
-					-- end,
+					pyright = function()
+						require("lspconfig").pyright.setup({
+							settings = {
+								pyright = {
+									disableOrganizeImports = true,
+								},
+								python = {
+									analysis = {
+										diagnosticSeverityOverrides = {
+											reportUnusedImport = "none",
+											reportUnusedVariable = "none",
+										},
+									},
+								},
+							},
+						})
+					end,
 				},
 			})
 		end,

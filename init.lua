@@ -66,6 +66,8 @@ opt.showtabline = 0
 opt.hlsearch = false
 opt.incsearch = true
 
+opt.fillchars:append({ eob = " " })
+
 -- nvim-tree binds
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
