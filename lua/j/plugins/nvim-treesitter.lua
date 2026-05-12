@@ -1,6 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPost", "BufNewFile" },
+	lazy = false,
 	build = ":TSUpdate",
 	config = function()
 		local configs = require("nvim-treesitter")
@@ -22,6 +22,7 @@ return {
 				"css",
 				"python",
 				"asm",
+				"markdown",
 			},
 			auto_install = true,
 			sync_install = false,

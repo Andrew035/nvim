@@ -28,8 +28,8 @@ opt.relativenumber = true
 opt.number = true
 
 -- tabs & indentation
-opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 2 -- 2 spaces for indent width
+opt.tabstop = 4 -- 4 spaces for tabs (prettier default)
+opt.shiftwidth = 4 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
@@ -68,24 +68,21 @@ opt.incsearch = true
 
 opt.fillchars:append({ eob = " " })
 
+-- for markdown
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.wrap = true
+		vim.opt_local.linebreak = true
+		vim.opt_local.text_width = 80
+	end,
+})
+
 -- nvim-tree binds
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
-
--- -- nvim-ale config
--- vim.cmd([[
---   let g:ale_linters = {
---       \ 'typescript': ['tsserver'],
---       \ 'typescriptreact': ['tsserver'],
---       \ }
---   let g:ale_fixers = {
---       \ 'typescript': ['prettier'],
---       \ 'typescriptreact': ['prettier'],
---       \ }
---   let g:ale_fix_on_save = 1
--- ]])
 
 local keymap = vim.keymap -- for conciseness
 local opts = { noremap = true, silent = true }
